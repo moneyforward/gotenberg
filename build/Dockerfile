@@ -64,8 +64,10 @@ RUN \
     # See https://stackoverflow.com/a/24417119/3248473.
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Install fonts.
+COPY fonts/ /usr/local/share/fonts/
+
 RUN \
-    # Install fonts.
     # Credits:
     # https://github.com/arachnys/athenapdf/blob/master/cli/Dockerfile.
     # https://help.accusoft.com/PrizmDoc/v12.1/HTML/Installing_Asian_Fonts_on_Ubuntu_and_Debian.html.
@@ -90,7 +92,7 @@ RUN \
     # ttf-wqy-zenhei \
     # fonts-arphic-ukai \
     # fonts-arphic-uming \
-    fonts-ipafont-mincho \
+    # fonts-ipafont-mincho \
     # fonts-ipafont-gothic \
     # fonts-unfonts-core \
     # LibreOffice recommends.
