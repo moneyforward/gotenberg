@@ -73,26 +73,26 @@ RUN \
     apt-get update -qq &&\
     DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
     ./ttf-mscorefonts-installer_3.8_all.deb \
-    culmus \
-    fonts-beng \
-    fonts-hosny-amiri \
-    fonts-lklug-sinhala \
-    fonts-lohit-guru \
-    fonts-lohit-knda \
-    fonts-samyak-gujr \
-    fonts-samyak-mlym \
-    fonts-samyak-taml \
-    fonts-sarai \
-    fonts-sil-abyssinica \
-    fonts-sil-padauk \
-    fonts-telu \
-    fonts-thai-tlwg \
-    ttf-wqy-zenhei \
-    fonts-arphic-ukai \
-    fonts-arphic-uming \
+    # culmus \
+    # fonts-beng \
+    # fonts-hosny-amiri \
+    # fonts-lklug-sinhala \
+    # fonts-lohit-guru \
+    # fonts-lohit-knda \
+    # fonts-samyak-gujr \
+    # fonts-samyak-mlym \
+    # fonts-samyak-taml \
+    # fonts-sarai \
+    # fonts-sil-abyssinica \
+    # fonts-sil-padauk \
+    # fonts-telu \
+    # fonts-thai-tlwg \
+    # ttf-wqy-zenhei \
+    # fonts-arphic-ukai \
+    # fonts-arphic-uming \
     fonts-ipafont-mincho \
-    fonts-ipafont-gothic \
-    fonts-unfonts-core \
+    # fonts-ipafont-gothic \
+    # fonts-unfonts-core \
     # LibreOffice recommends.
     fonts-crosextra-caladea \
     fonts-crosextra-carlito \
@@ -100,13 +100,13 @@ RUN \
     fonts-dejavu-extra \
     fonts-liberation \
     fonts-liberation2 \
-    fonts-linuxlibertine \
-    fonts-noto-cjk \
-    fonts-noto-core \
-    fonts-noto-mono \
-    fonts-noto-ui-core \
-    fonts-sil-gentium \
-    fonts-sil-gentium-basic &&\
+    fonts-linuxlibertine &&\
+    # fonts-noto-cjk \
+    # fonts-noto-core \
+    # fonts-noto-mono \
+    # fonts-noto-ui-core \
+    # fonts-sil-gentium \
+    # fonts-sil-gentium-basic &&\
     rm -f ./ttf-mscorefonts-installer_3.8_all.deb &&\
     # Add Color and Black-and-White Noto emoji font.
     # Credits:
