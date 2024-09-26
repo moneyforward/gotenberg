@@ -28,7 +28,7 @@ build: ## Build the Gotenberg's Docker image
 	-f build/Dockerfile .
 
 .PHONY: build-custom
-build: ## Build the custom Gotenberg's Docker image
+build-custom: ## Build the custom Gotenberg's Docker image
 	docker build \
 	--build-arg GOLANG_VERSION=$(GOLANG_VERSION) \
 	--build-arg GOTENBERG_VERSION=$(GOTENBERG_VERSION) \
