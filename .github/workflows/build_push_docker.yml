@@ -37,12 +37,12 @@ jobs:
           file: build/Dockerfile.custom
           push: true
           tags: |
-            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:latest-custom
-            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:${{ github.sha }}-custom
+            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:latest
+            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:${{ github.sha }}
           build-args: |
-            GOLANG_VERSION=${{ env.GOLANG_VERSION }}
-            GOTENBERG_VERSION=${{ env.GOTENBERG_VERSION }}
-            GOTENBERG_USER_GID=${{ env.GOTENBERG_USER_GID }}
-            GOTENBERG_USER_UID=${{ env.GOTENBERG_USER_UID }}
-            NOTO_COLOR_EMOJI_VERSION=${{ env.NOTO_COLOR_EMOJI_VERSION }}
-            PDFTK_VERSION=${{ env.PDFTK_VERSION }}
+            GOLANG_VERSION=$GOLANG_VERSION
+            GOTENBERG_VERSION=$GOTENBERG_VERSION
+            GOTENBERG_USER_GID=$GOTENBERG_USER_GID
+            GOTENBERG_USER_UID=$GOTENBERG_USER_UID
+            NOTO_COLOR_EMOJI_VERSION=$NOTO_COLOR_EMOJI_VERSION
+            PDFTK_VERSION=$PDFTK_VERSION
