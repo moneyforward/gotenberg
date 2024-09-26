@@ -30,6 +30,7 @@ jobs:
         with:
           context: .
           file: build/Dockerfile.custom
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:v8-latest
