@@ -13,11 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Load environment variables from .env
-        uses: falti/dotenv-action@v1.1.4
-        with:
-          path: .env
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -37,12 +32,13 @@ jobs:
           file: build/Dockerfile.custom
           push: true
           tags: |
-            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:latest
-            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:${{ github.sha }}
+            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:v8-latest
+            ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:v8-${{ github.sha }}
           build-args: |
-            GOLANG_VERSION=$GOLANG_VERSION
-            GOTENBERG_VERSION=$GOTENBERG_VERSION
-            GOTENBERG_USER_GID=$GOTENBERG_USER_GID
-            GOTENBERG_USER_UID=$GOTENBERG_USER_UID
-            NOTO_COLOR_EMOJI_VERSION=$NOTO_COLOR_EMOJI_VERSION
-            PDFTK_VERSION=$PDFTK_VERSION
+            GOLANG_VERSION=1.23
+            GOTENBERG_VERSION=8
+            GOTENBERG_USER_GID=1001
+            GOTENBERG_USER_UID=1001
+            NOTO_COLOR_EMOJI_VERSION=v2.042
+            PDFTK_VERSION=v3.3.3
+            GOLANGCI_LINT_VERSION=v1.60.3
