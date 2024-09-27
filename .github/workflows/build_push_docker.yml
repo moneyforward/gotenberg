@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - v8
+      - main
 
 jobs:
   build-and-push:
