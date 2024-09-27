@@ -43,3 +43,14 @@ jobs:
             NOTO_COLOR_EMOJI_VERSION=v2.042
             PDFTK_VERSION=v3.3.3
             GOLANGCI_LINT_VERSION=v1.60.3
+
+      - name: Update latest release with Docker image details
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          release_body="### ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }} image
+          \`\`\`shell
+          ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:v8-latest
+          ${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:v8-${{ github.sha }}
+          \`\`\`"
+          gh release create v${{ github.run_number }} --notes "$release_body"
