@@ -27,6 +27,18 @@ build: ## Build the Gotenberg's Docker image
 	-t $(DOCKER_REGISTRY)/$(DOCKER_REPOSITORY):$(GOTENBERG_VERSION) \
 	-f build/Dockerfile .
 
+.PHONY: build-custom
+build-custom: ## Build the custom Gotenberg's Docker image
+	docker build \
+	--build-arg GOLANG_VERSION=$(GOLANG_VERSION) \
+	--build-arg GOTENBERG_VERSION=$(GOTENBERG_VERSION) \
+	--build-arg GOTENBERG_USER_GID=$(GOTENBERG_USER_GID) \
+	--build-arg GOTENBERG_USER_UID=$(GOTENBERG_USER_UID) \
+	--build-arg NOTO_COLOR_EMOJI_VERSION=$(NOTO_COLOR_EMOJI_VERSION) \
+	--build-arg PDFTK_VERSION=$(PDFTK_VERSION) \
+	-t $(DOCKER_REGISTRY)/$(DOCKER_REPOSITORY):$(GOTENBERG_VERSION) \
+	-f build/Dockerfile.custom .
+
 GOTENBERG_GRACEFUL_SHUTDOWN_DURATION=30s
 API_PORT=3000
 API_PORT_FROM_ENV=
@@ -198,4 +210,3 @@ release: ## Build the Gotenberg's Docker image and push it to a Docker repositor
 	$(DOCKER_REGISTRY) \
 	$(DOCKER_REPOSITORY) \
 	$(LINUX_AMD64_RELEASE)
-
